@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_graph.xml"
+    app:startDestination="@id/executeRequestFragment">
+
+    <fragment
+        android:id="@+id/executeRequestFragment"
+        android:name="com.example.maktabquiz.screen.execute.ExecuteRequestFragment"
+        android:label="ExecuteRequestFragment" />
+    <fragment
+        android:id="@+id/enqueueRequestFragment"
+        android:name="com.example.maktabquiz.screen.enqueue.EnqueueRequestFragment"
+        android:label="EnqueueRequestFragment" />
+    <fragment
+        android:id="@+id/glideFragment"
+        android:name="com.example.maktabquiz.screen.glide.GlideFragment"
+        android:label="GlideFragment" />
+</navigation>

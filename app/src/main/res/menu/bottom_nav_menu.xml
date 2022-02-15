@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@id/executeRequestFragment"
+        android:title="@string/execute_request" />
+    <item
+        android:id="@id/enqueueRequestFragment"
+        android:title="@string/enqueue_request" />
+
+    <item
+        android:id="@+id/glideFragment"
+        android:title="@string/glide" />
+</menu>
