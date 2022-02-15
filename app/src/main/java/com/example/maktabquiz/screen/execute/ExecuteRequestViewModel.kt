@@ -13,8 +13,15 @@ class ExecuteRequestViewModel(application: Application) : AndroidViewModel(appli
 
     fun load() {
         val request = Request.Builder().url(Client.URL).build()
-        Client.execute(request) { response ->
-            _response.postValue(response)
+//        Client.execute(request) { response ->
+//            _response.postValue(response)
+//        }
+
+        Client.executeWithHandler(
+            context = getApplication<Application>().applicationContext,
+            request = request
+        ) {
+            _response.value = it
         }
     }
 }

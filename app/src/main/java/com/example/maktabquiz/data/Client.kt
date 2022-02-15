@@ -1,5 +1,7 @@
 package com.example.maktabquiz.data
 
+import android.content.Context
+import android.os.Handler
 import okhttp3.*
 import okhttp3.internal.http2.Http2Reader
 import java.io.IOException
@@ -15,12 +17,29 @@ object Client {
     ): Future<*> {
         return executor.submit {
             val response = try {
-
                 client.newCall(request).execute().body?.string()
             } catch (ioe: IOException) {
                 ioe.message
             }
             onResponse(response)
+        }
+    }
+
+    fun executeWithHandler(
+        context: Context,
+        request: Request,
+        onResponse: (response: String?) -> Unit
+    ): Future<*> {
+        return executor.submit {
+            val response = try {
+                client.newCall(request).execute().body?.string()
+            } catch (ioe: IOException) {
+                ioe.message
+            }
+            val handler = Handler(context.mainLooper)
+            handler.post {
+                onResponse(response)
+            }
         }
     }
 
