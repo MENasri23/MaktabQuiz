@@ -4,7 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/books/Education/AndroidEdu/myProjects/MaktabQuiz/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
-        <entry key="..\:/books/Education/AndroidEdu/myProjects/MaktabQuiz/app/src/main/res/layout/enqueue_request_fragment.xml" value="0.25416666666666665" />
+        <entry key="..\:/books/Education/AndroidEdu/myProjects/MaktabQuiz/app/src/main/res/layout/aidl_fragment.xml" value="0.2341485507246377" />
+        <entry key="..\:/books/Education/AndroidEdu/myProjects/MaktabQuiz/app/src/main/res/layout/enqueue_request_fragment.xml" value="0.10948905109489052" />
         <entry key="..\:/books/Education/AndroidEdu/myProjects/MaktabQuiz/app/src/main/res/layout/execute_request_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/books/Education/AndroidEdu/myProjects/MaktabQuiz/app/src/main/res/layout/glide_fragment.xml" value="0.1" />
         <entry key="..\:/books/Education/AndroidEdu/myProjects/MaktabQuiz/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />

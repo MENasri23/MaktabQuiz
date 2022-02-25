@@ -27,10 +27,5 @@ class EnqueueRequestFragment : Fragment() {
         return binding.root
     }
 
-    override fun onStart() {
-        super.onStart()
-        viewModel.load()
-    }
-
 
 }

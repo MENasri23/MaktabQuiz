@@ -3,13 +3,18 @@ package com.example.maktabquiz.data
 import android.content.Context
 import android.os.Handler
 import okhttp3.*
-import okhttp3.internal.http2.Http2Reader
+import okhttp3.logging.HttpLoggingInterceptor
 import java.io.IOException
 import java.util.concurrent.*
 
-object Client {
-    private val client = OkHttpClient()
+object NetworkManger {
     private val executor = Executors.newSingleThreadExecutor()
+    val client = OkHttpClient
+        .Builder()
+        .callTimeout(5, TimeUnit.SECONDS)
+        .addInterceptor(createLoggingInterceptor())
+        .build()
+
 
     fun execute(
         request: Request,
@@ -43,11 +48,31 @@ object Client {
         }
     }
 
+    inline fun enqueue(
+        request: Request.Builder.() -> Unit,
+        crossinline onFailure: (Call, IOException) -> Unit,
+        crossinline onResponse: (call: Call, response: Response) -> Unit
+    ) {
+        client.newCall(Request.Builder().apply(request).build())
+            .enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    onFailure(call, e)
+                }
 
-    fun enqueue(request: Request.Builder.() -> Unit, callback: Callback) {
-        client.newCall(Request.Builder().apply(request).build()).enqueue(callback)
+                override fun onResponse(call: Call, response: Response) {
+                    onResponse(call, response)
+                }
+            })
     }
 
+    fun createLoggingInterceptor(): Interceptor {
+        return HttpLoggingInterceptor().apply {
+            level = HttpLoggingInterceptor.Level.BODY
+
+        }
+    }
+
+    const val BASE_URL = "https://api.github.com/"
     const val URL = "https://picsum.photos/seed/orange/200/300"
 
 }

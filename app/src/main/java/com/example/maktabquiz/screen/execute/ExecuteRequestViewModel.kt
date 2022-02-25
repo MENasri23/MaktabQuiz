@@ -2,7 +2,7 @@ package com.example.maktabquiz.screen.execute
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.maktabquiz.data.Client
+import com.example.maktabquiz.data.NetworkManger
 import okhttp3.Request
 
 class ExecuteRequestViewModel(application: Application) : AndroidViewModel(application) {
@@ -12,12 +12,12 @@ class ExecuteRequestViewModel(application: Application) : AndroidViewModel(appli
 
 
     fun load() {
-        val request = Request.Builder().url(Client.URL).build()
+        val request = Request.Builder().url(NetworkManger.URL).build()
 //        Client.execute(request) { response ->
 //            _response.postValue(response)
 //        }
 
-        Client.executeWithHandler(
+        NetworkManger.executeWithHandler(
             context = getApplication<Application>().applicationContext,
             request = request
         ) {
