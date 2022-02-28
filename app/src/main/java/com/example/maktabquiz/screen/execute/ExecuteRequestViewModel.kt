@@ -2,7 +2,6 @@ package com.example.maktabquiz.screen.execute
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.maktabquiz.data.NetworkManger
 import okhttp3.Request
 
 class ExecuteRequestViewModel(application: Application) : AndroidViewModel(application) {
